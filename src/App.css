@@ -18,13 +18,6 @@ height: 600px;
   text-align: center;
 }
 
-@media (max-width: 600px) {
-  .cal {
-    width: var(--app-width);
-    height: var(--app-height);
-  }
-}
-
 .header{
   display: flex;
   align-items: center;
@@ -63,9 +56,8 @@ height: 600px;
 }
 
 .screen {
-  width: 424px;
   height: 93px;
-  margin: 12px auto 30px;
+  margin: 12px 30px;
   padding: 15px 20px;
   color: #c0c0c0;
   text-align: right;
@@ -116,4 +108,18 @@ height: 600px;
 .wide{
   grid-row: span 1;
   grid-column: span 2;
+}
+
+@media (max-width: 600px) {
+  .cal {
+    width: var(--app-width);
+    height: var(--app-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container{
+    width: 100%;
+  }
+
 }
