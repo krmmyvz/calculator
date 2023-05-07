@@ -22,3 +22,8 @@ code {
   src: local("Eurostile"),
     url("./assets/Eurostile.ttf") format("truetype");
 }
+@font-face {
+  font-family: "DS Digital";   /*Can be any text*/
+  src: local("DS-DIGII"),
+    url("./assets/DS-DIGII.TTF") format("truetype");
+}

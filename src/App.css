@@ -1,4 +1,4 @@
-.App{
+.App {
   height: var(--app-height);
   display: flex;
   align-items: center;
@@ -6,36 +6,37 @@
 }
 
 .cal {
-width: 450px;
-height: 600px;
+  width: 450px;
+  height: 600px;
   padding: 10px 0;
   background: #232323;
-  border: #000 1px solid;
-  border-radius: 15px;
-  box-shadow: rgba(0,0,0,0.4) 0px 2px 5px, inset rgba(255,255,255,0.9) 0px 1px 1px -1px;
+  border: #514847 10px solid;
+  border-radius: 45px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 5px,
+    inset rgba(255, 255, 255, 0.9) 0px 1px 1px -1px;
   background-image: linear-gradient(to top, #333333, #1f1f1f);
   overflow: hidden;
   text-align: center;
 }
 
-.header{
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 10px 50px;
+  margin: 25px 50px 10px 50px;
 }
-.title-cont{
+.title-cont {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
-.title{
+.title {
   font-family: "Eurostile";
   text-transform: uppercase;
   font-size: 22px;
 }
-.sub{
+.sub {
   font-family: "Eurostile";
   font-size: 8px;
   letter-spacing: 0;
@@ -44,7 +45,7 @@ height: 600px;
 #solar {
   height: 40px;
   width: 120px;
-  background: #331700;
+  background: #391d06;
   box-shadow: inset 0 -2px 3px #000;
   border-radius: 3px;
 }
@@ -52,60 +53,108 @@ height: 600px;
   float: left;
   margin-top: 5px;
   height: 30px;
-  width: 25%;    border-right: 1px solid #422;
+  width: 25%;
+  border-right: 1px solid #422;
 }
 
 .screen {
   height: 93px;
+  line-height: 93px;
   margin: 12px 30px;
-  padding: 15px 20px;
-  color: #c0c0c0;
+  padding: 0 20px;
+  color: #22241c;
   text-align: right;
-  font-size: 3em;
-  letter-spacing: 3px;
+  vertical-align: middle;
+  font-size: 5em;
   overflow: hidden;
   border: #000 1px solid;
   border-radius: 15px;
-  box-shadow: inset rgba(0,0,0,1) 0px 1px 4px, inset rgba(225,225,225,0.3) 0px -2px 4px -2px;
-  background-image: linear-gradient(to top, #3e3e3e 0%, #303030 100%);
+  box-shadow: inset rgba(0, 0, 0, 1) 0px 1px 4px,
+    inset rgba(225, 225, 225, 0.3) 0px -2px 4px -2px;
+  background-image: linear-gradient(to top, #bdbeae 0%, #b7b8a8 100%);
+  background-color: #e4e6d2;
   box-sizing: border-box;
+  font-family: "DS Digital";
+  font-stretch: expanded;
 }
 
 .buttons {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-gap: 10px;
-  margin: 10px 30px;
+  margin: 50px 30px;
 }
-.buttons button {
-  padding: 18px 12px;
+.buttons button{
+  padding: 10px 12px;
   color: #c0c0c0;
-  font-family: "Myriad Pro", Arial, sans-serif;
-  font-size: 1.6em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.8em;
   font-weight: 500;
   background-color: #2f2f2f;
   border: #000 1px solid;
-  border-radius: 25px;
+  border-radius: 15px;
   text-align: center;
   text-decoration: none;
   text-shadow: #000 0px -1px 0px;
-  box-shadow: inset rgba(255,255,255,0.1) 0px 1px 0px, inset rgba(0,0,0,0.2) 0px -2px 2px;
-  background-image: linear-gradient(to top, #363636 0%, #313234 40%, #2f2f2f 100%);
+  box-shadow: inset rgba(255, 255, 255, 0.1) 0px 1px 0px,
+    inset rgba(0, 0, 0, 0.2) 0px -2px 2px;
   box-sizing: border-box;
   cursor: pointer;
 }
-
-.buttons button:active{
-  background-image: linear-gradient(to bottom, #363636 0%, #313234 40%, #2f2f2f 100%);
-
+.val{
+  background-image: linear-gradient(
+    to top,
+    #363636 0%,
+    #313234 40%,
+    #2f2f2f 100%
+  );
 }
-.equal{
+.num{
+  background-image: linear-gradient(
+    to top,
+    #6e544c 0%,
+    #574337 100%
+  );
+}
+.clear{
+  background-image: linear-gradient(
+    to top,
+    #996e46 0%,
+    #985b30 100%
+  );
+}
+
+.val:active {
+  background-image: linear-gradient(
+    to bottom,
+    #363636 0%,
+    #313234 40%,
+    #2f2f2f 100%
+  );
+}
+
+ .num:active {
+  background-image: linear-gradient(
+    to bottom,
+    #6e544c 0%,
+    #574337 100%
+  );
+}
+.clear:active{
+  background-image: linear-gradient(
+    to bottom,
+    #996e46 0%,
+    #985b30 100%
+  );
+}
+
+.equal {
   grid-row: span 2;
   grid-column: span 1;
 }
 
-.wide{
+.wide {
   grid-row: span 1;
   grid-column: span 2;
 }
@@ -118,8 +167,7 @@ height: 600px;
     align-items: center;
     justify-content: center;
   }
-  .container{
+  .container {
     width: 100%;
   }
-
 }

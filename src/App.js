@@ -58,7 +58,7 @@ function App() {
       const result = math.evaluate(currentValue);
       setCurrentValue(result.toString());
     } catch (error) {
-      setCurrentValue("Hatalı İfade");
+      setCurrentValue("Error");
     }
   }
 
@@ -72,68 +72,86 @@ function App() {
               <div className="sub">Made by: Kerem Yavuz</div>
             </div>
             <div id="solar">
-              <div class="panel grid"></div>
-              <div class="panel grid"></div>
-              <div class="panel"></div>
+              <div className="panel grid"></div>
+              <div className="panel grid"></div>
+              <div className="panel"></div>
             </div>
           </div>
 
           <div className="screen">{currentValue || "0"}</div>
           <input type="hidden" className="outcome" value="2+2" />
           <div className="buttons">
-            <button className="clear" onClick={handleClear}>
-              C
+          <button className="val">
+              MC
             </button>
-            <button className="val" onClick={handleInput} value="+/-">
-              &plusmn;
+            <button className="val">
+              MR
+            </button>
+            <button className="val">
+              M-
+            </button>
+            <button className="val">
+              M+
             </button>
             <button className="val" onClick={handleInput} value="/">
               &divide;
             </button>
+            <button className="val" onClick={handleInput} value="+/-">
+              &plusmn;
+            </button>
+            <button className="val num" onClick={handleInput} value="7">
+              7
+            </button>
+            <button className="val num" onClick={handleInput} value="8">
+              8
+            </button>
+            <button className="val num" onClick={handleInput} value="9">
+              9
+            </button>
             <button className="val" onClick={handleInput} value="*">
               &times;
             </button>
-            <button className="val" onClick={handleInput} value="7">
-              7
+            <button className="val">
+              --
             </button>
-            <button className="val" onClick={handleInput} value="8">
-              8
+            <button className="val num" onClick={handleInput} value="4">
+              4
             </button>
-            <button className="val" onClick={handleInput} value="9">
-              9
+            <button className="val num" onClick={handleInput} value="5">
+              5
+            </button>
+            <button className="val num" onClick={handleInput} value="6">
+              6
             </button>
             <button className="val" onClick={handleInput} value="-">
               -
             </button>
-            <button className="val" onClick={handleInput} value="4">
-              4
+            <button className="val clear" onClick={handleClear} value="+">
+              C
             </button>
-            <button className="val" onClick={handleInput} value="5">
-              5
-            </button>
-            <button className="val" onClick={handleInput} value="6">
-              6
-            </button>
-            <button className="val" onClick={handleInput} value="+">
-              +
-            </button>
-            <button className="val" onClick={handleInput} value="1">
+            <button className="val num" onClick={handleInput} value="1">
               1
             </button>
-            <button className="val" onClick={handleInput} value="2">
+            <button className="val num" onClick={handleInput} value="2">
               2
             </button>
-            <button className="val" onClick={handleInput} value="3">
+            <button className="val num" onClick={handleInput} value="3">
               3
             </button>
-            <button className="val equal" onClick={handleCalculate}>
-              =
+            <button className="val equal" onClick={handleInput} value="+">
+              +
             </button>
-            <button className="val wide" onClick={handleInput} value="0">
+            <button className="val num" onClick={handleInput} value="0">
               0
             </button>
-            <button className="val" onClick={handleInput} value=".">
+            <button className="val num" onClick={handleInput} value="00">
+              00
+            </button>
+            <button className="val num" onClick={handleInput} value=".">
               .
+            </button>
+            <button className="val" onClick={handleCalculate} value="=">
+              =
             </button>
           </div>
         </div>
