@@ -1,10 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as math from "mathjs";
 import "./App.css";
 import "./assets/Eurostile.ttf";
 
 function App() {
   const [currentValue, setCurrentValue] = useState("1");
+
+  const setWidthHeight = () => {
+    const doc = document.documentElement;
+    doc.style.setProperty("--app-height", `${window.innerHeight}px`);
+    doc.style.setProperty("--app-width", `${window.innerWidth}px`);
+  };
+  useEffect(() => {
+    window.addEventListener("resize", setWidthHeight);
+    setWidthHeight();
+    return () => {
+      window.removeEventListener("resize", setWidthHeight);
+    };
+  }, []); // Only call useEffect once when the component first renders
 
   function handleInput(event) {
     const value = event.target.value;
@@ -39,7 +52,7 @@ function App() {
   function handleClear() {
     setCurrentValue("");
   }
-  
+
   function handleCalculate() {
     try {
       const result = math.evaluate(currentValue);
