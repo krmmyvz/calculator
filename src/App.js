@@ -4,7 +4,7 @@ import "./App.css";
 import "./assets/Eurostile.ttf";
 
 function App() {
-  const [currentValue, setCurrentValue] = useState("1");
+  const [currentValue, setCurrentValue] = useState("0");
 
   const setWidthHeight = () => {
     const doc = document.documentElement;
