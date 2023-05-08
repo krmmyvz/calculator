@@ -6,8 +6,10 @@
 }
 
 .cal {
-  width: 450px;
-  height: 600px;
+  width: 90%;
+  max-width: 450px;
+  height: 65%;
+  max-height: 600px;
   padding: 10px 0;
   background: #232323;
   border: #514847 10px solid;
@@ -85,6 +87,7 @@
   grid-gap: 10px;
   margin: 50px 30px;
 }
+
 .buttons button{
   padding: 10px 12px;
   color: #c0c0c0;
@@ -102,6 +105,7 @@
   box-sizing: border-box;
   cursor: pointer;
 }
+
 .val{
   background-image: linear-gradient(
     to top,
@@ -160,14 +164,22 @@
 }
 
 @media (max-width: 600px) {
+
   .cal {
-    width: var(--app-width);
-    height: var(--app-height);
     display: flex;
     align-items: center;
     justify-content: center;
   }
+
   .container {
     width: 100%;
+  }
+  .buttons button{
+    font-size: 1.1em;
+  }
+  .screen {
+    height: 70px;
+    line-height: 70px;
+    font-size: 3.5em;
   }
 }
