@@ -5,30 +5,31 @@ import "./assets/Eurostile.ttf";
 
 function App() {
   const [currentValue, setCurrentValue] = useState("0");
-  const [memoryValue, setMemoryValue] = useState("");
+  const [memoryValue, setMemoryValue] = useState("0");
+  const [markupPercentage, setMarkupPercentage] = useState(10);
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
-  }
+  };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-  }
-
+  };
 
   const setWidthHeight = () => {
     const doc = document.documentElement;
     doc.style.setProperty("--app-height", `${window.innerHeight}px`);
     doc.style.setProperty("--app-width", `${window.innerWidth}px`);
   };
+
   useEffect(() => {
     window.addEventListener("resize", setWidthHeight);
     setWidthHeight();
     return () => {
       window.removeEventListener("resize", setWidthHeight);
     };
-  }, []); // Only call useEffect once when the component first renders
+  }, []);
 
   function handleInput(event) {
     const value = event.target.value;
@@ -59,6 +60,16 @@ function App() {
       setMemoryValue(math.evaluate(memoryValue + "+" + currentValue));
     } else if (value === "M-") {
       setMemoryValue(math.evaluate(memoryValue + "-" + currentValue));
+    } else if (value === "%") {
+      setCurrentValue(math.evaluate(currentValue + "/100").toString());
+    } else if (value === "MU") {
+      try {
+        const result = math.evaluate(currentValue);
+        const markup = result * (markupPercentage / 100);
+        setCurrentValue((result + markup).toString());
+      } catch (error) {
+        setCurrentValue("Error");
+      }
     } else {
       setCurrentValue(
         currentValue === "0" || currentValue === "Hatalı İfade"
@@ -66,7 +77,7 @@ function App() {
           : currentValue + value
       );
     }
-  }  
+  }
 
   function handleClear() {
     setCurrentValue("");
@@ -80,8 +91,6 @@ function App() {
       setCurrentValue("Error");
     }
   }
-
-
 
   return (
     <div className="App">
@@ -104,10 +113,13 @@ function App() {
           <div className={`screen ${isHovered ? 'active' : ''}`}>{currentValue || "0"}</div>
           <input type="hidden" className="outcome" value="2+2" />
           <div className="topbuttons">
-          <button className="val" onClick={handleInput} value="MC">
+            <div></div>
+            <div></div>
+            <div></div>
+          <button className="val" onClick={handleInput} value="%">
               %
             </button>
-            <button className="val" onClick={handleInput} value="MR">
+            <button className="val" onClick={handleInput} value="MU">
               MU
             </button>
           </div>
