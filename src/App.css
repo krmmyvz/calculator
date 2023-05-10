@@ -8,8 +8,7 @@
 .cal {
   width: 90%;
   max-width: 450px;
-  height: 65%;
-  max-height: 600px;
+  height: 600px;
   padding: 10px 0;
   background: #232323;
   border: #514847 10px solid;
@@ -44,14 +43,15 @@
   letter-spacing: 0;
 }
 
-#solar {
+.solar {
   height: 40px;
   width: 120px;
   background: #391d06;
   box-shadow: inset 0 -2px 3px #000;
   border-radius: 3px;
 }
-#solar .panel {
+
+.solar .panel {
   float: left;
   margin-top: 5px;
   height: 30px;
@@ -78,15 +78,45 @@
   box-sizing: border-box;
   font-family: "DS Digital";
   font-stretch: expanded;
+  transition: color 0.3s ease-in;
 }
-
+.screen.active {
+  color: transparent;
+  transition: color 0.3s ease-in;
+}
 .buttons {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-gap: 10px;
-  margin: 50px 30px;
+  margin: 00px 30px 10px 30px;
 }
+.topbuttons {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+  margin: 50px 30px 10px 30px;
+  justify-content: end;
+}
+.topbuttons button{
+
+  padding: 5px 12px;
+  color: #c0c0c0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.2em;
+  font-weight: 500;
+  background-color: #2f2f2f;
+  border: #000 1px solid;
+  border-radius: 15px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: #000 0px -1px 0px;
+  box-shadow: inset rgba(255, 255, 255, 0.1) 0px 1px 0px,
+    inset rgba(0, 0, 0, 0.2) 0px -2px 2px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
 
 .buttons button{
   padding: 10px 12px;
@@ -169,6 +199,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 65%;
   }
 
   .container {

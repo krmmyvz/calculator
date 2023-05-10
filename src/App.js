@@ -5,6 +5,17 @@ import "./assets/Eurostile.ttf";
 
 function App() {
   const [currentValue, setCurrentValue] = useState("0");
+  const [memoryValue, setMemoryValue] = useState("");
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  }
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  }
+
 
   const setWidthHeight = () => {
     const doc = document.documentElement;
@@ -40,6 +51,14 @@ function App() {
       setCurrentValue(currentValue + "-");
     } else if (value === ".") {
       setCurrentValue(currentValue + ".");
+    } else if (value === "MR") {
+      setCurrentValue(memoryValue);
+    } else if (value === "MC") {
+      setMemoryValue("");
+    } else if (value === "M+") {
+      setMemoryValue(math.evaluate(memoryValue + "+" + currentValue));
+    } else if (value === "M-") {
+      setMemoryValue(math.evaluate(memoryValue + "-" + currentValue));
     } else {
       setCurrentValue(
         currentValue === "0" || currentValue === "Hatalı İfade"
@@ -47,7 +66,7 @@ function App() {
           : currentValue + value
       );
     }
-  }
+  }  
 
   function handleClear() {
     setCurrentValue("");
@@ -62,6 +81,8 @@ function App() {
     }
   }
 
+
+
   return (
     <div className="App">
       <div className="cal">
@@ -71,26 +92,36 @@ function App() {
               <div className="title">Kasio</div>
               <div className="sub">Made by: Kerem Yavuz</div>
             </div>
-            <div id="solar">
+            <div className="solar"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave} >
               <div className="panel grid"></div>
               <div className="panel grid"></div>
               <div className="panel"></div>
             </div>
           </div>
 
-          <div className="screen">{currentValue || "0"}</div>
+          <div className={`screen ${isHovered ? 'active' : ''}`}>{currentValue || "0"}</div>
           <input type="hidden" className="outcome" value="2+2" />
+          <div className="topbuttons">
+          <button className="val" onClick={handleInput} value="MC">
+              %
+            </button>
+            <button className="val" onClick={handleInput} value="MR">
+              MU
+            </button>
+          </div>
           <div className="buttons">
-          <button className="val">
+          <button className="val" onClick={handleInput} value="MC">
               MC
             </button>
-            <button className="val">
+            <button className="val" onClick={handleInput} value="MR">
               MR
             </button>
-            <button className="val">
+            <button className="val" onClick={handleInput} value="M-">
               M-
             </button>
-            <button className="val">
+            <button className="val" onClick={handleInput} value="M+">
               M+
             </button>
             <button className="val" onClick={handleInput} value="/">
