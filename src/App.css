@@ -77,7 +77,6 @@
   background-color: #e4e6d2;
   box-sizing: border-box;
   font-family: "DS Digital";
-  font-stretch: expanded;
   transition: color 0.3s ease-in;
 }
 .screen.active {
